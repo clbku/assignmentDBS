@@ -25,4 +25,10 @@ class User extends Authenticatable
      * @var array
      */
     public $timestamps = true;
+    public function tutor () {
+        return $this->belongsTo("App\Tutor");
+    }
+    public function account () {
+        return $this->belongsTo("App\Account");
+    }
 }

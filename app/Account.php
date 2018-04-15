@@ -12,4 +12,19 @@ class Account extends Model
         'password', 'remember_token',
     ];
     public $timestamps = true;
+    public function user () {
+        return $this->belongsTo('App\User');
+    }
+    public function post () {
+        return $this->hasMany('App\Post');
+    }
+    public function news () {
+        return $this->hasMany('App\News');
+    }
+    public function exercise () {
+        return $this->hasMany('App\Exercise');
+    }
+    public function comment () {
+        return $this->hasMany('App\Comment');
+    }
 }
