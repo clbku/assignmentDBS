@@ -43,7 +43,12 @@
                                 @endif
                             </td>
                             <td>
-                                <a><i class="fa fa-edit"></i></a>
+                                <a href="{{route('admin.account.getLock', $a->id)}}">
+                                    @if ($a->state == 0)
+                                        <i class="fa fa-unlock"></i></a>
+                                    @else
+                                        <i class="fa fa-lock"></i></a>
+                                    @endif
                                 <a><i class="fa fa-times"></i></a>
                             </td>
                         </tr>

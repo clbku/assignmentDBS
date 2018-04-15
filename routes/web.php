@@ -40,7 +40,10 @@ Route::group(['prefix'=>'admin'],  function() {
             'as' => 'admin.account.postEdit',
             'uses' => 'AccountController@postEdit'
         ]);
-
+        Route::get('lock/{id}', [
+            'as' => 'admin.account.getLock',
+            'uses' => 'AccountController@getLock'
+        ]);
     });
 });
 
