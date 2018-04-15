@@ -11,6 +11,36 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/admin', function () {
+    return view('admin.pages.index');
 });
+Route::group(['prefix'=>'admin'],  function() {
+    Route::group(['prefix' => 'account'], function () {
+        Route::get('list', [
+            'as' => 'admin.account.getList',
+            'uses' => 'AccountController@getList'
+        ]);
+        Route::get('add', [
+            'as' => 'admin.account.getAdd',
+            'uses' => 'AccountController@getAdd'
+        ]);
+        Route::post('add', [
+            'as' => 'admin.account.postAdd',
+            'uses' => 'AccountController@postAdd'
+        ]);
+        Route::get('delete/{id}', [
+            'as' => 'admin.account.getDelete',
+            'uses' => 'AccountController@getDelete'
+        ]);
+        Route::get('edit/{id}', [
+            'as' => 'admin.account.getEdit',
+            'uses' => 'AccountController@getEdit'
+        ]);
+        Route::post('edit/{id}', [
+            'as' => 'admin.account.postEdit',
+            'uses' => 'AccountController@postEdit'
+        ]);
+
+    });
+});
+
