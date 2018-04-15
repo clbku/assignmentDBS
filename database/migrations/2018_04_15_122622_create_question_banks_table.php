@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMultipleChoicesTable extends Migration
+class CreateQuestionBanksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateMultipleChoicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('multiple_choices', function (Blueprint $table) {
+        Schema::create('question_banks', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('type');
+            $table->text('question');
+            $table->string('correct');
+            $table->string('wrong_1');
+            $table->string('wrong_2');
+            $table->string('wrong_3');
+            $table->text('explain');
             $table->timestamps();
         });
     }
@@ -27,6 +33,6 @@ class CreateMultipleChoicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('multiple_choices');
+        Schema::dropIfExists('question_banks');
     }
 }

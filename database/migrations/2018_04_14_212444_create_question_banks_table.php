@@ -15,10 +15,7 @@ class CreateQuestionBanksTable extends Migration
     {
         Schema::create('question_banks', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('type');
-            $table->text('question');
-            $table->integer('answer_id')->unsigned();
-            $table->foreign('answer_id')->references('id')->on('multiple_choices')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
