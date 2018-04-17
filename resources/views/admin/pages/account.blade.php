@@ -34,7 +34,7 @@
                             <?php
                                 $a_name = DB::select('select name from users where id = ?', [$a->user_id]);
                             ?>
-                            <td><a href="profile.html">{{$a_name[0]->name}}<a></td>
+                            <td><a href="{{route('admin.profile', $a->user_id)}}">{{$a_name[0]->name}}<a></td>
                             <td>
                                 @if ($a->state == 0)
                                     {{"Bị khóa"}}

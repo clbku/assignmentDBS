@@ -45,5 +45,10 @@ Route::group(['prefix'=>'admin'],  function() {
             'uses' => 'AccountController@getLock'
         ]);
     });
+    Route::get('/profile/{id}', [
+        'as' => "admin.profile",
+        'uses' => "UserController@getProfile"
+    ]);
 });
+
 
